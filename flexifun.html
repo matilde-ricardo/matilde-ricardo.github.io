@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexiFun Project | Matilde Ricardo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .project-header { padding: 100px 10% 50px; text-align: center; }
+        .project-content { padding: 0 15% 80px; }
+        .info-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 40px; 
+            margin: 40px 0;
+        }
+        .project-img { 
+            width: 100%; 
+            border-radius: 15px; 
+            border: 1px solid var(--accent-color);
+            margin: 20px 0;
+        }
+        .back-link { color: var(--accent-color); text-decoration: none; font-weight: bold; }
+        .btn-github {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background: var(--accent-color);
+            color: var(--bg-color);
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">MR</div>
+        <a href="index.html" class="back-link">← Back to Portfolio</a>
+    </nav>
+
+    <header class="project-header">
+        <span class="tag">Unity • PHP • MySQL • Hardware</span>
+        <h1>FlexiFun: Sensorized Glove for Rehabilitation</h1>
+    </header>
+
+    <main class="project-content">
+        <section>
+            <h2>Project Motivation</h2>
+            <p>Traditional physiotherapy can often be repetitive and demotivating for patients. The <strong>FlexiFun</strong> project was born from the need to create a more engaging and objective way to monitor hand rehabilitation, combining gamification with real-time clinical data.</p>
+        </section>
+
+        <img src="flexifun-preview.jpg" alt="FlexiFun System Preview" class="project-img">
+
+        <div class="info-grid">
+            <div>
+                <h3>The Solution</h3>
+                <p>An integrated system featuring a sensorized glove that captures hand movements. These movements are translated into actions within a Unity-based game, providing immediate biofeedback to the user.</p>
+            </div>
+            <div>
+                <h3>Clinical Monitoring</h3>
+                <p>A dedicated PHP web dashboard allows physiotherapists to track session history, range of motion improvements, and patient engagement through data stored in a MySQL database.</p>
+            </div>
+        </div>
+
+        <section>
+            <h3>Technical Implementation</h3>
+            <ul>
+                <li><strong>Hardware:</strong> Flex sensors and microcontroller for movement acquisition.</li>
+                <li><strong>Game Design:</strong> Developed in Unity (C#) for an immersive experience.</li>
+                <li><strong>Data Architecture:</strong> PHP server-side logic and MySQL for secure patient records.</li>
+            </ul>
+        </section>
+
+        <div style="text-align: center;">
+            <a href="https://github.com/matilde-ricardo/FlexiFun-Rehab-System" target="_blank" class="btn-github">
+                <i class="fa-brands fa-github"></i> View Full Source Code
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Matilde Ricardo</p>
+    </footer>
+</body>
+</html>
