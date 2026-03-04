@@ -227,15 +227,14 @@ nav ul li a:hover {
 .carousel-container {
     position: relative;
     width: 100%;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 40px auto;
     overflow: hidden;
-    padding: 50px 0;
+    padding: 60px 0;
 }
 
 .carousel-track {
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 20px;
     transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -243,11 +242,11 @@ nav ul li a:hover {
 }
 
 .carousel-item {
-    min-width: 250px;
+    min-width: 300px;
     width: 30%;
     transition: all 0.8s ease;
-    opacity: 0.4;
-    transform: scale(0.8);
+    opacity: 0.3;
+    transform: scale(0.85);
     filter: blur(2px);
     flex-shrink: 0;
 }
@@ -257,7 +256,7 @@ nav ul li a:hover {
     transform: scale(1.2);
     filter: blur(0);
     z-index: 10;
-    box-shadow: 0 0 30px rgba(115, 177, 109, 0.4);
+    box-shadow: 0 0 40px rgba(115, 177, 109, 0.5);
 }
 
 .carousel-item img {
@@ -267,28 +266,36 @@ nav ul li a:hover {
     display: block;
 }
 
-.carousel-prev, .carousel-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(115, 177, 109, 0.2);
+/* ==========================================================
+   8. IMAGENS DA GRELHA (Tamanho Igual e Movimento)
+   ========================================================== */
+.grid-img {
+    width: 100%;
+    aspect-ratio: 16 / 10; /* Garante tamanho igual em todas */
+    object-fit: cover;     /* Preenche o espaço sem distorcer */
+    border-radius: 12px;
     border: 1px solid var(--accent-color);
-    color: white;
-    padding: 12px;
+    margin: 20px 0;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
-    border-radius: 50%;
-    z-index: 20;
-    transition: 0.3s;
 }
 
-.carousel-prev:hover, .carousel-next:hover {
-    background: var(--accent-color);
-    color: var(--bg-color);
+.grid-img:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 15px 35px rgba(115, 177, 109, 0.3);
+    border-color: #fff;
 }
 
-.carousel-prev { left: 10px; }
-.carousel-next { right: 10px; }
-
+/* Ajustes na Página de Projeto */
+.project-header { padding: 100px 10% 50px; text-align: center; }
+.project-content { padding: 0 15% 80px; }
+.info-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px; 
+    margin: 40px 0; 
+}
+.back-link { color: var(--accent-color); text-decoration: none; font-weight: bold; }
 /* ==========================================================
    7. RODAPÉ E ANIMAÇÕES
    ========================================================== */
