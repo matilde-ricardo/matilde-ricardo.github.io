@@ -46,14 +46,25 @@
     </header>
 
    <main class="project-content">
+       
     <section>
         <h2>Project Motivation</h2>
         <p>Traditional physiotherapy can often be repetitive and demotivating for patients. The <strong>FlexiFun</strong> project was born from the need to create a more engaging and objective way to monitor hand rehabilitation, combining gamification with real-time clinical data.</p>
         
-        <div class="project-gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
-            <img src="jogo1.png" alt="FlexiFun Process 1" class="project-img">
-            <img src="jogo2.png" alt="FlexiFun Process 2" class="project-img">
-            <img src="jogo3.png" alt="FlexiFun Process 3" class="project-img">
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-item">
+                    <img src="jogo1.png" alt="FlexiFun Process 1">
+                </div>
+                <div class="carousel-item active">
+                    <img src="jogo2.png" alt="FlexiFun Process 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="jogo3.png" alt="FlexiFun Process 3">
+                </div>
+            </div>
+            <button class="carousel-prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="carousel-next"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
     </section>
 
