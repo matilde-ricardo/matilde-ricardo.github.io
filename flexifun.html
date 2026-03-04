@@ -87,5 +87,37 @@
     <footer>
         <p>© 2026 Matilde Ricardo</p>
     </footer>
+   
+    <script>
+    const items = document.querySelectorAll('.carousel-item');
+    const nextBtn = document.querySelector('.carousel-next');
+    const prevBtn = document.querySelector('.carousel-prev');
+    let currentIndex = 1; // Começa na segunda imagem (centro)
+
+    function updateCarousel() {
+        items.forEach((item, index) => {
+            item.classList.remove('active');
+            if (index === currentIndex) {
+                item.classList.add('active');
+            }
+        });
+    }
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarousel();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        updateCarousel();
+    });
+
+    // Auto-play opcional (roda a cada 4 segundos)
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarousel();
+    }, 4000);
+</script>
 </body>
 </html>
