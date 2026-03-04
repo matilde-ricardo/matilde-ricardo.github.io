@@ -263,3 +263,70 @@ footer {
     transform: scale(1.05);
     box-shadow: 0 0 15px rgba(115, 177, 109, 0.4);
 }
+
+/* Container do Carrossel */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto;
+    overflow: hidden;
+    padding: 50px 0;
+}
+
+.carousel-track {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Itens individuais */
+.carousel-item {
+    min-width: 250px;
+    width: 30%;
+    transition: all 0.5s ease;
+    opacity: 0.5;
+    transform: scale(0.8);
+    filter: blur(2px);
+}
+
+/* O item no Centro (Roleta) */
+.carousel-item.active {
+    opacity: 1;
+    transform: scale(1.2); /* Expande a imagem central */
+    filter: blur(0);
+    z-index: 10;
+    box-shadow: 0 0 30px rgba(115, 177, 109, 0.4);
+}
+
+.carousel-item img {
+    width: 100%;
+    border-radius: 15px;
+    border: 2px solid var(--accent-color);
+    display: block;
+}
+
+/* Botões de Navegação */
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(115, 177, 109, 0.2);
+    border: 1px solid var(--accent-color);
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 20;
+    transition: 0.3s;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+}
+
+.carousel-prev { left: 10px; }
+.carousel-next { right: 10px; }
