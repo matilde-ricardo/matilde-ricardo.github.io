@@ -121,6 +121,11 @@ nav ul li a:hover {
     text-align: center;
     border: 1px solid #222;
     transition: all 0.4s ease;
+    min-height: 250px; /* Garante que os cartões têm o mesmo tamanho mesmo com textos diferentes */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
     
     /* Estado inicial para a animação de entrada */
     opacity: 0;
