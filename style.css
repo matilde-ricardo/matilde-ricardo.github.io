@@ -62,7 +62,7 @@ nav ul li a:hover {
 }
 
 /* ==========================================================
-   3. HERO SECTION (NOME E INTRODUÇÃO)
+   3. HERO SECTION
    ========================================================== */
 #hero {
     height: 70vh;
@@ -92,7 +92,7 @@ nav ul li a:hover {
 }
 
 /* ==========================================================
-   4. TECHNICAL SKILLS (ESTILO CARDS COM MOVIMENTO)
+   4. TECHNICAL SKILLS
    ========================================================== */
 #skills {
     padding: 80px 10%;
@@ -121,19 +121,15 @@ nav ul li a:hover {
     text-align: center;
     border: 1px solid #222;
     transition: all 0.4s ease;
-    min-height: 250px; /* Garante que os cartões têm o mesmo tamanho mesmo com textos diferentes */
+    min-height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-    
-    /* Estado inicial para a animação de entrada */
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 0.8s ease forwards;
 }
 
-/* Efeito de Cascata (Delays) */
 .skill-card:nth-child(1) { animation-delay: 0.2s; }
 .skill-card:nth-child(2) { animation-delay: 0.4s; }
 .skill-card:nth-child(3) { animation-delay: 0.6s; }
@@ -156,17 +152,15 @@ nav ul li a:hover {
     font-family: 'Oswald', sans-serif;
     font-size: 1.3rem;
     margin-bottom: 10px;
-    color: var(--text-main);
 }
 
 .skill-card p {
     color: var(--text-dim);
     font-size: 0.9rem;
-    margin: 0;
 }
 
 /* ==========================================================
-   5. PROJETOS E OUTRAS SECÇÕES
+   5. PROJETOS E DOWNLOAD
    ========================================================== */
 #about, #projects {
     padding: 80px 10%;
@@ -205,9 +199,99 @@ nav ul li a:hover {
     display: inline-block;
 }
 
+.btn-download {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.btn-download:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(115, 177, 109, 0.4);
+}
+
 /* ==========================================================
-   6. RODAPÉ E ANIMAÇÕES (KEYFRAMES)
-   ========================================================= */
+   6. CARROSSEL (ROLETA FLEXIFUN)
+   ========================================================== */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto;
+    overflow: hidden;
+    padding: 50px 0;
+}
+
+.carousel-track {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.carousel-item {
+    min-width: 250px;
+    width: 30%;
+    transition: all 0.8s ease;
+    opacity: 0.4;
+    transform: scale(0.8);
+    filter: blur(2px);
+    flex-shrink: 0;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    transform: scale(1.2);
+    filter: blur(0);
+    z-index: 10;
+    box-shadow: 0 0 30px rgba(115, 177, 109, 0.4);
+}
+
+.carousel-item img {
+    width: 100%;
+    border-radius: 15px;
+    border: 2px solid var(--accent-color);
+    display: block;
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(115, 177, 109, 0.2);
+    border: 1px solid var(--accent-color);
+    color: white;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 20;
+    transition: 0.3s;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+}
+
+.carousel-prev { left: 10px; }
+.carousel-next { right: 10px; }
+
+/* ==========================================================
+   7. RODAPÉ E ANIMAÇÕES
+   ========================================================== */
 footer {
     text-align: center;
     padding: 60px 10%;
@@ -232,101 +316,5 @@ footer {
 }
 
 @keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    to { opacity: 1; transform: translateY(0); }
 }
-/* Estilo do Botão de Download */
-.btn-download {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: transparent;
-    color: var(--accent-color);
-    border: 2px solid var(--accent-color);
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: 'Oswald', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-}
-
-.btn-download i {
-    margin-right: 8px;
-}
-
-.btn-download:hover {
-    background-color: var(--accent-color);
-    color: var(--bg-color);
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(115, 177, 109, 0.4);
-}
-
-/* Container do Carrossel */
-.carousel-container {
-    position: relative;
-    width: 100%;
-    max-width: 1000px;
-    margin: 40px auto;
-    overflow: hidden;
-    padding: 50px 0;
-}
-
-.carousel-track {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    transition: transform 0.5s ease-in-out;
-}
-
-/* Itens individuais */
-.carousel-item {
-    min-width: 250px;
-    width: 30%;
-    transition: all 0.5s ease;
-    opacity: 0.5;
-    transform: scale(0.8);
-    filter: blur(2px);
-}
-
-/* O item no Centro (Roleta) */
-.carousel-item.active {
-    opacity: 1;
-    transform: scale(1.2); /* Expande a imagem central */
-    filter: blur(0);
-    z-index: 10;
-    box-shadow: 0 0 30px rgba(115, 177, 109, 0.4);
-}
-
-.carousel-item img {
-    width: 100%;
-    border-radius: 15px;
-    border: 2px solid var(--accent-color);
-    display: block;
-}
-
-/* Botões de Navegação */
-.carousel-prev, .carousel-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(115, 177, 109, 0.2);
-    border: 1px solid var(--accent-color);
-    color: white;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 50%;
-    z-index: 20;
-    transition: 0.3s;
-}
-
-.carousel-prev:hover, .carousel-next:hover {
-    background: var(--accent-color);
-    color: var(--bg-color);
-}
-
-.carousel-prev { left: 10px; }
-.carousel-next { right: 10px; }
