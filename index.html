@@ -1,52 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Meu Portefólio | Engenharia Biomédica & Dev</title>
+    <title>Matilde Ricardo | Biomedical Engineering & Dev</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">MATILDE RICARDO</div>
+            <div class="logo">MR</div>
             <ul>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="hero">
-        <h1>Matilde Ricardo</h1>
-        <p>Biomedical Engineer passionate about leveraging programming and IT to develop innovative healthcare solutions.</p>
-        <a href="#projetos" class="btn">Ver Meus Projetos</a>
+        <div class="hero-content">
+            <h1 class="reveal-text">MATILDE RICARDO</h1>
+            <p class="fade-in">Biomedical Engineering student focused on building innovative tech solutions for healthcare.</p>
+        </div>
     </section>
 
-    <section id="sobre">
-        <h2>Sobre Mim</h2>
-        <p>Atualmente a tirar a licenciatura em Engenharia Biomédica, foco-me na interseção entre a medicina e a informática. Procuro o meu primeiro estágio para aplicar os meus conhecimentos em Python, C++ e Análise de Dados.</p>
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <p>Currently pursuing a degree in Biomedical Engineering, I work at the intersection of medicine and computer science. I am looking for my first internship to apply my skills in Python, C++, and Data Analysis to solve real-world health challenges.</p>
     </section>
 
-    <section id="projetos">
-        <h2>Meus Projetos</h2>
-        <div class="grid-projetos">
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="grid-projects">
             <div class="card">
-                <h3>Análise de Sinais ECG</h3>
-                <p>Algoritmo em Python para deteção de arritmias usando bibliotecas como NumPy e Matplotlib.</p>
-                <a href="#">Ver no GitHub</a>
+                <span class="tag">Python</span>
+                <h3>ECG Signal Analysis</h3>
+                <p>Algorithm for arrhythmia detection using NumPy and Matplotlib to process real-time cardiac data.</p>
+                <a href="#" class="project-link">View Repository →</a>
             </div>
             <div class="card">
-                <h3>Gestor de Consultas</h3>
-                <p>Aplicação simples feita em C++ para gerir registos de pacientes.</p>
-                <a href="#">Ver no GitHub</a>
+                <span class="tag">C++</span>
+                <h3>Patient Management System</h3>
+                <p>A high-performance system designed to manage medical records and appointment scheduling.</p>
+                <a href="#" class="project-link">View Repository →</a>
             </div>
         </div>
     </section>
 
-    <footer id="contacto">
-        <p>© 2026 [Matilde Ricardo] | <a href="https://linkedin.com/in/teu-perfil">LinkedIn</a></p>
+    <footer id="contact">
+        <p>Connect with me</p>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/your-profile">LinkedIn</a>
+            <a href="mailto:your-email@example.com">Email</a>
+        </div>
+        <p class="copyright">© 2026 Matilde Ricardo</p>
     </footer>
 </body>
 </html>
