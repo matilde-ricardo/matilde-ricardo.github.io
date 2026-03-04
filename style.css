@@ -237,3 +237,29 @@ footer {
         transform: translateY(0);
     }
 }
+/* Estilo do Botão de Download */
+.btn-download {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-download i {
+    margin-right: 8px;
+}
+
+.btn-download:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(115, 177, 109, 0.4);
+}
