@@ -1,55 +1,212 @@
-/* Skills Section Styling */
+/* ==========================================================
+   1. CONFIGURAÇÕES GERAIS E FONTES
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@700&display=swap');
+
+:root {
+    --bg-color: #0a0a0a;       /* Fundo quase preto */
+    --card-bg: #141414;        /* Fundo dos cartões */
+    --accent-color: #73b16d;   /* O teu verde tecnológico */
+    --text-main: #ffffff;      /* Branco para leitura */
+    --text-dim: #a0a0a0;       /* Cinza para descrições */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ==========================================================
+   2. NAVEGAÇÃO
+   ========================================================== */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 10%;
+}
+
+.logo { 
+    font-family: 'Oswald', sans-serif; 
+    font-size: 1.5rem; 
+    color: var(--accent-color); 
+    font-weight: bold;
+}
+
+nav ul { 
+    display: flex; 
+    list-style: none; 
+    gap: 30px; 
+    margin: 0; 
+    padding: 0;
+}
+
+nav ul li a { 
+    color: var(--text-dim); 
+    text-decoration: none; 
+    transition: 0.3s; 
+    font-size: 0.9rem; 
+    font-weight: 700;
+}
+
+nav ul li a:hover { 
+    color: var(--accent-color); 
+}
+
+/* ==========================================================
+   3. HERO SECTION (NOME E INTRODUÇÃO)
+   ========================================================== */
+#hero {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+#hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    letter-spacing: -2px;
+    margin: 0;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    animation: textReveal 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+#hero p {
+    color: var(--text-dim);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 20px auto;
+    animation: fadeIn 2s ease;
+}
+
+/* ==========================================================
+   4. TECHNICAL SKILLS (ESTILO CARDS COM MOVIMENTO)
+   ========================================================== */
 #skills {
     padding: 80px 10%;
-    background-color: #0d0d0d; /* Ligeiro tom diferente para separar secções */
+    background-color: #0d0d0d;
 }
 
-.skills-container {
+.section-title {
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
-    margin-top: 40px;
 }
 
-.skill-tile {
-    background: var(--card-bg);
-    padding: 30px;
-    border-radius: 15px;
+.skill-card {
+    background-color: var(--card-bg);
+    padding: 35px 25px;
+    border-radius: 12px;
     text-align: center;
     border: 1px solid #222;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    
+    /* Estado inicial para a animação de entrada */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
 }
 
-.skill-tile i {
+/* Efeito de Cascata (Delays) */
+.skill-card:nth-child(1) { animation-delay: 0.2s; }
+.skill-card:nth-child(2) { animation-delay: 0.4s; }
+.skill-card:nth-child(3) { animation-delay: 0.6s; }
+.skill-card:nth-child(4) { animation-delay: 0.8s; }
+
+.skill-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(115, 177, 109, 0.1);
+}
+
+.skill-icon {
     font-size: 3rem;
-    color: var(--accent-color); /* O teu verde #73b16d */
-    margin-bottom: 15px;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    display: block;
 }
 
-.skill-tile h3 {
+.skill-card h3 {
     font-family: 'Oswald', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-bottom: 10px;
-    letter-spacing: 1px;
+    color: var(--text-main);
 }
 
-.skill-tile p {
+.skill-card p {
     color: var(--text-dim);
     font-size: 0.9rem;
     margin: 0;
 }
 
-/* Hover effect for Skills */
-.skill-tile:hover {
-    transform: scale(1.05);
-    background: #1a1a1a;
-    border-color: var(--accent-color);
-    box-shadow: 0 10px 30px rgba(115, 177, 109, 0.1);
+/* ==========================================================
+   5. PROJETOS E OUTRAS SECÇÕES
+   ========================================================== */
+#about, #projects {
+    padding: 80px 10%;
 }
 
-/* Social links styling */
-.social-links {
-    margin: 20px 0;
+.grid-projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #222;
+    transition: 0.4s;
+}
+
+.card:hover {
+    border-color: var(--accent-color);
+}
+
+.tag {
+    color: var(--accent-color);
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.project-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+/* ==========================================================
+   6. RODAPÉ E ANIMAÇÕES (KEYFRAMES)
+   ========================================================= */
+footer {
+    text-align: center;
+    padding: 60px 10%;
+    background: #050505;
 }
 
 .social-links a {
@@ -57,9 +214,21 @@
     text-decoration: none;
     margin: 0 15px;
     font-weight: bold;
-    transition: 0.3s;
 }
 
-.social-links a:hover {
-    color: white;
+@keyframes textReveal {
+    0% { transform: translateY(40px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
