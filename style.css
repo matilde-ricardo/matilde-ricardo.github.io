@@ -352,23 +352,23 @@ footer {
     align-items: center;
 }
 
-/* Estado inicial: Escondido e deslocado para baixo */
+/* Estado inicial: Mais abaixo e invisível */
 .reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateY(80px); /* Aumentado para o movimento ser mais visível */
+    transition: all 1.2s cubic-bezier(0.2, 1, 0.3, 1); /* Mais lento e elegante */
     visibility: hidden;
     will-change: transform, opacity;
 }
 
-/* Estado final: Quando entra no ecrã */
+/* Quando se torna ativo */
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
     visibility: visible;
 }
 
-/* Classe auxiliar para o efeito cascata via JS */
+/* Efeito Cascata: Aumentado o intervalo entre itens para ser mais percetível */
 .reveal-item {
-    transition-delay: calc(var(--item-reveal-delay) * 0.15s);
+    transition-delay: calc(var(--item-reveal-delay) * 0.2s);
 }
