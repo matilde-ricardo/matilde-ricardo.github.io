@@ -98,6 +98,16 @@ programming, software development, and leveraging technology to solve real-world
 
    <script>
     document.addEventListener("DOMContentLoaded", () => {
+
+                // Adiciona a classe 'scrolled' quando o utilizador desce 50px
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
         // 1. Lista abrangente de seletores para incluir TODO o conteúdo
         const selectors = [
             '#hero h1', '#hero p', '.btn-download', 
