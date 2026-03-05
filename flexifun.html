@@ -15,7 +15,7 @@
 
     <header class="project-header">
         <span class="tag">Unity • PHP • MySQL • Hardware</span>
-        <h1>FlexiFun: Sensorized Glove for Rehabilitation</h1>
+        <h1 id="typing-title"></h1>
     </header>
 
     <main class="project-content">
@@ -72,6 +72,7 @@
     </footer>
 
     <script>
+        // --- SCRIPT DO CARROSSEL ---
         const track = document.querySelector('.carousel-track');
         const items = document.querySelectorAll('.carousel-item');
         const nextBtn = document.querySelector('.carousel-next');
@@ -111,7 +112,24 @@
             autoPlayInterval = startAutoPlay();
         });
 
-        window.addEventListener('load', updateCarousel);
+        // --- NOVO SCRIPT: EFEITO TYPING ---
+        const titleElement = document.getElementById('typing-title');
+        const text = "FlexiFun: Sensorized Glove for Rehabilitation";
+        let index = 0;
+
+        function typeEffect() {
+            if (index < text.length) {
+                titleElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeEffect, 70); // Velocidade da digitação (ms)
+            }
+        }
+
+        window.addEventListener('load', () => {
+            updateCarousel();
+            typeEffect(); // Inicia a digitação ao carregar
+        });
+
         window.addEventListener('resize', updateCarousel);
     </script>
 </body>
