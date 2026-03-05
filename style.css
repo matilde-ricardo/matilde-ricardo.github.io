@@ -1,139 +1,371 @@
+/* ==========================================================
+   1. CONFIGURAÇÕES GERAIS E FONTES
+   ========================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@700&display=swap');
 
 :root {
-    --bg-color: #050505;
-    --card-bg: rgba(20, 20, 20, 0.6);
-    --accent-color: #73b16d;
-    --text-main: #ffffff;
-    --text-dim: #a0a0a0;
+    --bg-color: #0a0a0a;       /* Fundo quase preto */
+    --card-bg: #141414;        /* Fundo dos cartões */
+    --accent-color: #73b16d;   /* O teu verde tecnológico */
+    --text-main: #ffffff;      /* Branco para leitura */
+    --text-dim: #a0a0a0;       /* Cinza para descrições */
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+    box-sizing: border-box;
+}
 
 body {
     font-family: 'Inter', sans-serif;
+    margin: 0;
+    background-color: var(--bg-color);
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
-    background-color: var(--bg-color); /* Fallback */
 }
 
-/* Partículas Fundo */
-#tsparticles {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: -1;
-}
-
-/* Navegação Glassmorphism */
+/* ==========================================================
+   2. NAVEGAÇÃO (GLASSMORPHISM)
+   ========================================================== */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 10%;
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 1000;
-    background: rgba(10, 10, 10, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(115, 177, 109, 0.1);
-    transition: all 0.4s ease;
+    padding: 1rem 10%;
+    position: fixed; /* Fica fixa no topo */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Garante que fica por cima de tudo */
+    
+    /* Efeito de Vidro */
+    background: rgba(10, 10, 10, 0.7); /* Fundo escuro semi-transparente */
+    backdrop-filter: blur(10px); /* O segredo do desfoque */
+    -webkit-backdrop-filter: blur(10px); /* Compatibilidade Safari */
+    border-bottom: 1px solid rgba(115, 177, 109, 0.2); /* Borda verde muito subtil */
+    
+    transition: all 0.3s ease;
 }
 
+/* Pequeno ajuste para o conteúdo não ficar por baixo da nav fixa */
+body {
+       padding-top: 60px; 
+}
+
+/* Efeito ao fazer scroll: a nav pode ficar mais compacta */
 nav.scrolled {
-    padding: 0.8rem 10%;
-    background: rgba(5, 5, 5, 0.9);
-    border-bottom: 1px solid var(--accent-color);
+             padding: 0.8rem 10%;
+             background: rgba(10, 10, 10, 0.9);
+             border-bottom: 1px solid var(--accent-color);
+}
+/* ==========================================================
+   3. HERO SECTION
+   ========================================================== */
+#hero {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
 }
 
-.logo { font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--accent-color); }
-nav ul { display: flex; list-style: none; gap: 30px; }
-nav ul li a, .back-link { color: var(--text-dim); text-decoration: none; font-weight: 700; transition: 0.3s; }
-nav ul li a:hover, .back-link:hover { color: var(--accent-color); }
-
-/* Reveal on Scroll */
-.reveal {
-    opacity: 0;
-    transform: translateY(80px);
-    transition: all 1.2s cubic-bezier(0.2, 1, 0.3, 1);
-    visibility: hidden;
+#hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    letter-spacing: -2px;
+    margin: 0;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    animation: textReveal 1.2s cubic-bezier(0.77, 0, 0.175, 1);
 }
-.reveal.active { opacity: 1; transform: translateY(0); visibility: visible; }
-.reveal-item { transition-delay: calc(var(--item-reveal-delay) * 0.2s); }
 
-/* Cards & Containers */
-.card, .skill-card, .info-grid > div {
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 30px;
-    transition: 0.4s;
+#hero p {
+    color: var(--text-dim);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 20px auto;
+    animation: fadeIn 2s ease;
 }
-.card:hover, .skill-card:hover { border-color: var(--accent-color); transform: translateY(-10px); }
-
-/* Typing Effect Cursor */
-#typing-title {
-    border-right: 3px solid var(--accent-color);
-    padding-right: 5px;
-    animation: blink 0.8s step-end infinite;
-}
-@keyframes blink { from, to { border-color: transparent; } 50% { border-color: var(--accent-color); } }
-
-/* Hero Section */
-#hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-#hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(3rem, 10vw, 6rem); color: var(--accent-color); text-transform: uppercase; }
-
-/* Carrossel */
-.carousel-container { position: relative; overflow: hidden; padding: 60px 0; }
-.carousel-track { display: flex; align-items: center; gap: 20px; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
-.carousel-item { min-width: 300px; opacity: 0.3; transform: scale(0.8); transition: 0.8s; }
-.carousel-item.active { opacity: 1; transform: scale(1.1); filter: drop-shadow(0 0 20px var(--accent-color)); }
-.carousel-item img { width: 100%; border-radius: 15px; border: 2px solid var(--accent-color); }
-
-/* Utilitários */
-.btn-github, .btn-download {
-    display: inline-block; padding: 12px 25px; border: 2px solid var(--accent-color);
-    color: var(--accent-color); text-decoration: none; border-radius: 30px; font-weight: bold;
-}
-.btn-github:hover, .btn-download:hover { background: var(--accent-color); color: var(--bg-color); }
-.tag { color: var(--accent-color); font-size: 0.8rem; font-weight: bold; }
-.grid-img { width: 100%; border-radius: 12px; margin: 15px 0; border: 1px solid var(--accent-color); }
-.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 40px 0; }
-section { padding: 80px 10%; }
-footer { text-align: center; padding: 40px; background: rgba(0,0,0,0.5); }
 
 /* ==========================================================
-   10. ANIMAÇÃO ECG (LINHA DE VIDA)
+   4. TECHNICAL SKILLS
    ========================================================== */
-.ecg-line-container {
-    position: fixed;
-    bottom: 10%;
-    left: 0;
+#skills {
+    padding: 80px 10%;
+    background-color: #0d0d0d;
+}
+
+.section-title {
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.skill-card {
+    background-color: var(--card-bg);
+    padding: 35px 25px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #222;
+    transition: all 0.4s ease;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.skill-card:nth-child(1) { animation-delay: 0.2s; }
+.skill-card:nth-child(2) { animation-delay: 0.4s; }
+.skill-card:nth-child(3) { animation-delay: 0.6s; }
+.skill-card:nth-child(4) { animation-delay: 0.8s; }
+
+.skill-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(115, 177, 109, 0.1);
+}
+
+.skill-icon {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.skill-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+/* ==========================================================
+   5. PROJETOS E DOWNLOAD
+   ========================================================== */
+#about, #projects {
+    padding: 80px 10%;
+}
+
+.grid-projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #222;
+    transition: 0.4s;
+}
+
+.card:hover {
+    border-color: var(--accent-color);
+}
+
+.tag {
+    color: var(--accent-color);
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.project-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.btn-download {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.btn-download:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(115, 177, 109, 0.4);
+}
+
+/* ==========================================================
+   6. CARROSSEL (ROLETA FLEXIFUN)
+   ========================================================== */
+.carousel-container {
+    position: relative;
     width: 100%;
-    height: 100px;
-    z-index: -1;
-    opacity: 0.2;
-    pointer-events: none;
+    max-width: 1200px;
+    margin: 40px auto;
+    overflow: hidden;
+    padding: 60px 0;
 }
 
-.ecg-svg {
+.carousel-track {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.carousel-item {
+    min-width: 300px;
+    width: 30%;
+    transition: all 0.8s ease;
+    opacity: 0.3;
+    transform: scale(0.85);
+    filter: blur(2px);
+    flex-shrink: 0;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    transform: scale(1.2);
+    filter: blur(0);
+    z-index: 10;
+    box-shadow: 0 0 40px rgba(115, 177, 109, 0.5);
+}
+
+.carousel-item img {
     width: 100%;
-    height: 100%;
+    border-radius: 15px;
+    border: 2px solid var(--accent-color);
+    display: block;
 }
 
-.ecg-path {
-    stroke: var(--accent-color);
-    stroke-width: 2;
-    fill: none;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: drawEcg 5s linear infinite;
+/* ==========================================================
+   8. IMAGENS DA GRELHA (Tamanho Igual e Movimento)
+   ========================================================== */
+.grid-img {
+    width: 100%;
+    aspect-ratio: 16 / 10; /* Garante tamanho igual em todas */
+    object-fit: cover;     /* Preenche o espaço sem distorcer */
+    border-radius: 12px;
+    border: 1px solid var(--accent-color);
+    margin: 20px 0;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
 }
 
-@keyframes drawEcg {
-    0% { stroke-dashoffset: 1000; }
-    100% { stroke-dashoffset: 0; }
+.grid-img:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 15px 35px rgba(115, 177, 109, 0.3);
+    border-color: #fff;
+}
+
+/* Ajustes na Página de Projeto */
+.project-header { padding: 100px 10% 50px; text-align: center; }
+.project-content { padding: 0 15% 80px; }
+.info-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px; 
+    margin: 40px 0; 
+}
+.back-link { color: var(--accent-color); text-decoration: none; font-weight: bold; }
+/* ==========================================================
+   7. RODAPÉ E ANIMAÇÕES
+   ========================================================== */
+footer {
+    text-align: center;
+    padding: 60px 10%;
+    background: #050505;
+}
+
+.social-links a {
+    color: var(--accent-color);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+@keyframes textReveal {
+    0% { transform: translateY(40px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================
+   9. EFEITO TYPING (CURSOR ANIMATION)
+   ========================================================== */
+#typing-title {
+    display: inline-block;
+    min-height: 1.2em; /* Evita que o layout salte antes de começar */
+    border-right: 3px solid var(--accent-color); /* O cursor | */
+    padding-right: 5px;
+    white-space: normal; /* Permite quebra de linha em ecrãs pequenos */
+    animation: blinkCursor 0.8s step-end infinite;
+}
+
+@keyframes blinkCursor {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--accent-color); }
+}
+
+/* Ajuste opcional para o header não saltar */
+.project-header {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estado inicial: Mais abaixo e invisível */
+.reveal {
+    opacity: 0;
+    transform: translateY(80px); /* Aumentado para o movimento ser mais visível */
+    transition: all 1.2s cubic-bezier(0.2, 1, 0.3, 1); /* Mais lento e elegante */
+    visibility: hidden;
+    will-change: transform, opacity;
+}
+
+/* Quando se torna ativo */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+/* Efeito Cascata: Aumentado o intervalo entre itens para ser mais percetível */
+.reveal-item {
+    transition-delay: calc(var(--item-reveal-delay) * 0.2s);
 }
