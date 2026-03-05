@@ -95,6 +95,51 @@ programming, software development, and leveraging technology to solve real-world
         </div>
     </section>
 
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // 1. Selecionamos tudo o que queremos animar
+        const selectors = [
+            '#hero h1', '#hero p', '.btn-download', 
+            '.section-title', '.skill-card', '.card', 'footer'
+        ];
+
+        // 2. Aplicamos a classe reveal e preparamos a cascata para grupos
+        const sections = document.querySelectorAll('section, .skills-grid, .grid-projects');
+        
+        selectors.forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach((el, index) => {
+                el.classList.add('reveal');
+                // Se o elemento estiver dentro de uma grelha, damos-lhe um index para a cascata
+                if (el.classList.contains('skill-card') || el.classList.contains('card')) {
+                    el.style.setProperty('--item-reveal-delay', index % 4); // Cascata de 4 em 4
+                    el.classList.add('reveal-item');
+                }
+            });
+        });
+
+        // 3. Função que verifica o scroll
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll(".reveal");
+            const windowHeight = window.innerHeight;
+
+            reveals.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 100; // Sensibilidade: ativa quando 100px do item aparecem
+
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add("active");
+                }
+            });
+        }
+
+            // Ouvir o scroll e executar uma vez ao carregar
+            window.addEventListener("scroll", revealOnScroll);
+            // Pequeno timeout para garantir que o load inicial funciona bem
+            setTimeout(revealOnScroll, 100);
+        });
+    </script>
     <footer id="contact">
         <p>Connect with me</p>
         <div class="social-links">
@@ -103,5 +148,6 @@ programming, software development, and leveraging technology to solve real-world
         </div>
         <p class="copyright">© 2026 Matilde Ricardo</p>
     </footer>
+
 </body>
 </html>
