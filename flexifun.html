@@ -72,7 +72,40 @@
     </footer>
 
     <script>
-        // --- SCRIPT DO CARROSSEL ---
+    document.addEventListener("DOMContentLoaded", () => {
+        // --- 1. CONFIGURAÇÃO DO REVEAL ON SCROLL ---
+        const selectors = [
+            '.tag', 'section h2', 'section p', 
+            '.carousel-container', '.info-grid > div', 
+            'section h3', 'section ul li', '.btn-github', 'footer'
+        ];
+
+        selectors.forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach((el, index) => {
+                el.classList.add('reveal');
+                
+                // Efeito cascata especial para a lista técnica e grelha de info
+                if (el.tagName === 'LI' || el.parentElement.classList.contains('info-grid')) {
+                    el.style.setProperty('--item-reveal-delay', (index % 10) + 1);
+                    el.classList.add('reveal-item');
+                }
+            });
+        });
+
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll(".reveal");
+            const windowHeight = window.innerHeight;
+            reveals.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 80) {
+                    el.classList.add("active");
+                }
+            });
+        }
+        window.addEventListener("scroll", revealOnScroll);
+
+        // --- 2. SCRIPT DO CARROSSEL ---
         const track = document.querySelector('.carousel-track');
         const items = document.querySelectorAll('.carousel-item');
         const nextBtn = document.querySelector('.carousel-next');
@@ -89,48 +122,31 @@
             track.style.transform = `translateX(${-offset}px)`;
         }
 
-        function startAutoPlay() {
-            return setInterval(() => {
-                currentIndex = (currentIndex + 1) % items.length;
-                updateCarousel();
-            }, 3000);
-        }
-
-        let autoPlayInterval = startAutoPlay();
-
-        nextBtn.addEventListener('click', () => {
-            clearInterval(autoPlayInterval);
+        let autoPlayInterval = setInterval(() => {
             currentIndex = (currentIndex + 1) % items.length;
             updateCarousel();
-            autoPlayInterval = startAutoPlay();
-        });
+        }, 3000);
 
-        prevBtn.addEventListener('click', () => {
-            clearInterval(autoPlayInterval);
-            currentIndex = (currentIndex - 1 + items.length) % items.length;
-            updateCarousel();
-            autoPlayInterval = startAutoPlay();
-        });
+        [nextBtn, prevBtn].forEach(btn => btn.addEventListener('click', () => clearInterval(autoPlayInterval)));
 
-        // --- NOVO SCRIPT: EFEITO TYPING ---
+        // --- 3. EFEITO TYPING NO TÍTULO ---
         const titleElement = document.getElementById('typing-title');
         const text = "FlexiFun: Sensorized Glove for Rehabilitation";
-        let index = 0;
+        let charIndex = 0;
 
         function typeEffect() {
-            if (index < text.length) {
-                titleElement.innerHTML += text.charAt(index);
-                index++;
-                setTimeout(typeEffect, 70); // Velocidade da digitação (ms)
+            if (charIndex < text.length) {
+                titleElement.innerHTML += text.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeEffect, 70);
             }
         }
 
-        window.addEventListener('load', () => {
+            // --- INICIALIZAÇÃO GERAL ---
             updateCarousel();
-            typeEffect(); // Inicia a digitação ao carregar
+            typeEffect();
+            setTimeout(revealOnScroll, 150); // Dispara o reveal inicial
         });
-
-        window.addEventListener('resize', updateCarousel);
     </script>
 </body>
 </html>
