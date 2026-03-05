@@ -638,3 +638,78 @@ footer {
 .feature-icon i {
     filter: drop-shadow(0 0 8px var(--accent-color));
 }
+
+/* ==========================================================
+   INTERACTIVE IMAGE STYLES
+   ========================================================== */
+
+.image-interactive-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 50px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.img-main-glow {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    filter: grayscale(30%) brightness(0.8);
+}
+
+.image-interactive-wrapper:hover .img-main-glow {
+    transform: scale(1.02);
+    filter: grayscale(0%) brightness(1.1);
+}
+
+.img-caption {
+    background: rgba(5, 5, 5, 0.8);
+    color: var(--accent-color);
+    padding: 10px;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-top: 1px solid var(--accent-color);
+}
+
+/* Comparison Layout */
+.comparison-flex-container {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.image-zoom-card {
+    flex: 1;
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(115, 177, 109, 0.2);
+    text-align: center;
+}
+
+.image-zoom-card img {
+    width: 100%;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.image-zoom-card img:hover {
+    box-shadow: 0 0 20px var(--accent-color);
+    cursor: crosshair;
+}
+
+.img-sub {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    margin-top: 10px;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .comparison-flex-container { flex-direction: column; }
+}
