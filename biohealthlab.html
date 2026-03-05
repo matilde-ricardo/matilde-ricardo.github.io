@@ -24,37 +24,104 @@
     <main class="project-content">
         <section>
             <h2 class="reveal">Project Overview</h2>
-            <p class="reveal">The <strong>BioHealthLab</strong> project focuses on the advanced processing of physiological signals to improve diagnostic accuracy. By integrating various biosensors, we develop algorithms that can detect early signs of cardiovascular and neurological anomalies.</p>
+            <p class="reveal">The <strong>BioHealthLab</strong> is a comprehensive clinical management system designed to streamline the lifecycle of medical samples. Built with a robust MySQL database and a dynamic web interface, the platform serves as a centralized hub where patients, healthcare professionals, and administrators can manage and track diagnostic procedures in real-time.</p>
             
             <div class="card reveal" style="margin-top: 30px; text-align: center;">
                 <img src="lab-hero.png" alt="BioHealthLab Interface" class="grid-img" style="max-height: 400px; object-fit: contain;">
             </div>
         </section>
 
-        <div class="info-grid">
-            <div class="reveal">
-                <h3><i class="fa-solid fa-heart-pulse"></i> Signal Processing</h3>
-                <p>Advanced filtering and feature extraction from ECG and EMG signals using Python and specialized Bio-toolkits.</p>
-                <img src="ecg-analysis.png" alt="ECG Analysis" class="grid-img">
+       <section id="features">
+            <h2 class="section-title reveal">System Ecosystem</h2>
+
+           <section id="workflow" style="margin-top: 80px;">
+                <h2 class="section-title reveal">The User Journey</h2>
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+                    
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot">1</div>
+                        <div class="timeline-info">
+                            <h4>Registration</h4>
+                            <p>Profiles created via CRUD system.</p>
+                        </div>
+                    </div>
+            
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot">2</div>
+                        <div class="timeline-info">
+                            <h4>Booking</h4>
+                            <p>Smart scheduling of harvests.</p>
+                        </div>
+                    </div>
+            
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot">3</div>
+                        <div class="timeline-info">
+                            <h4>Tracking</h4>
+                            <p>Real-time monitor of samples.</p>
+                        </div>
+                    </div>
+            
+                    <div class="timeline-item reveal">
+                        <div class="timeline-dot">4</div>
+                        <div class="timeline-info">
+                            <h4>Delivery</h4>
+                            <p>Automated clinical reports.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-users-gear"></i></div>
+                    <div class="feature-content">
+                        <h3>Identity Management</h3>
+                        <p>Full <strong>CRUD</strong> engine for healthcare profiles. Secure handling of patient data and professional credentials with administrative oversight.</p>
+                        <span class="tech-tag">MySQL</span> <span class="tech-tag">Data Integrity</span>
+                    </div>
+                </div>
+        
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                    <div class="feature-content">
+                        <h3>Smart Scheduling</h3>
+                        <p>Dynamic booking system that synchronizes patient availability with lab capacity, eliminating overlaps and workflow bottlenecks.</p>
+                        <span class="tech-tag">Optimization</span> <span class="tech-tag">UX</span>
+                    </div>
+                </div>
+        
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-vial-circle-check"></i></div>
+                    <div class="feature-content">
+                        <h3>Harvest Lifecycle</h3>
+                        <p>End-to-end tracking. Monitor the <strong>real-time status</strong> of clinical samples from the collection point to final lab validation.</p>
+                        <span class="tech-tag">Real-time Tracking</span>
+                    </div>
+                </div>
+        
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-file-waveform"></i></div>
+                    <div class="feature-content">
+                        <h3>Clinical Insights</h3>
+                        <p>Automated reporting engine. Export detailed analytics and diagnostics to facilitate seamless department communication.</p>
+                        <span class="tech-tag">PDF Export</span> <span class="tech-tag">Analytics</span>
+                    </div>
+                </div>
             </div>
-            <div class="reveal">
-                <h3><i class="fa-solid fa-microscope"></i> Research Focus</h3>
-                <p>Developing non-invasive monitoring systems that provide real-time feedback for clinical research environments.</p>
-                <img src="research-data.png" alt="Data Visualization" class="grid-img">
-            </div>
-        </div>
+        </section>
 
         <section>
-            <h3 class="reveal">Technical Core</h3>
+            <h3 class="reveal">Technical Architecture</h3>
             <ul style="list-style: none;">
                 <li class="reveal" style="margin-bottom: 15px;">
-                    <strong style="color: var(--accent-color);">Algorithms:</strong> Implementing Machine Learning models for predictive health analytics.
+                    <strong style="color: var(--accent-color);">Backend:</strong> PHP/Node.js logic to handle complex queries and business rules.
                 </li>
                 <li class="reveal" style="margin-bottom: 15px;">
-                    <strong style="color: var(--accent-color);">Hardware Integration:</strong> Interfacing with professional medical-grade sensors and DAQ systems.
+                    <strong style="color: var(--accent-color);">Database:</strong> Optimized MySQL relational structure to store sensitive medical data securely.
                 </li>
                 <li class="reveal" style="margin-bottom: 15px;">
-                    <strong style="color: var(--accent-color);">Compliance:</strong> Ensuring data handling follows healthcare privacy standards (GDPR/HIPAA).
+                    <strong style="color: var(--accent-color);">Roles & Permissions:</strong> Tiered access control (Administrator, Professional, Patient) to guarantee data privacy and specialized dashboards for each user type.
                 </li>
             </ul>
         </section>
