@@ -535,3 +535,28 @@ footer {
         stroke-dashoffset: 0; /* Termina totalmente visível, 'correndo' para a direita */
     }
 }
+
+.btn-github {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.btn-github i {
+    font-size: 1.2rem;
+}
+
+.btn-github:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px rgba(115, 177, 109, 0.4);
+    transform: translateY(-3px);
+}
