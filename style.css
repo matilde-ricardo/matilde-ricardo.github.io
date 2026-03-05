@@ -25,38 +25,53 @@ body {
 }
 
 /* ==========================================================
-   2. NAVEGAÇÃO (GLASSMORPHISM)
+   2. NAVEGAÇÃO (CORRIGIDA)
    ========================================================== */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 10%;
-    position: fixed; /* Fica fixa no topo */
+    padding: 1.5rem 10%;
+    position: fixed; /* Mantém a barra fixa no topo */
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000; /* Garante que fica por cima de tudo */
-    
-    /* Efeito de Vidro */
-    background: rgba(10, 10, 10, 0.7); /* Fundo escuro semi-transparente */
-    backdrop-filter: blur(10px); /* O segredo do desfoque */
-    -webkit-backdrop-filter: blur(10px); /* Compatibilidade Safari */
-    border-bottom: 1px solid rgba(115, 177, 109, 0.2); /* Borda verde muito subtil */
-    
-    transition: all 0.3s ease;
+    z-index: 1000;
+    background: rgba(10, 10, 10, 0.7); /* Fundo escuro transparente */
+    backdrop-filter: blur(12px); /* Efeito de desfoque/vidro */
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(115, 177, 109, 0.1);
+    transition: all 0.4s ease;
 }
 
-/* Pequeno ajuste para o conteúdo não ficar por baixo da nav fixa */
-body {
-       padding-top: 60px; 
+/* Remove as bolinhas da lista e coloca os itens lado a lado */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px; /* Espaço entre os links */
+    margin: 0;
+    padding: 0;
 }
 
-/* Efeito ao fazer scroll: a nav pode ficar mais compacta */
+/* Estilo dos links */
+nav ul li a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Ajuste para quando a página desliza */
 nav.scrolled {
-             padding: 0.8rem 10%;
-             background: rgba(10, 10, 10, 0.9);
-             border-bottom: 1px solid var(--accent-color);
+    padding: 0.8rem 10%;
+    background: rgba(5, 5, 5, 0.95);
+    border-bottom: 1px solid var(--accent-color);
 }
 /* ==========================================================
    3. HERO SECTION
