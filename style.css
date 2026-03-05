@@ -386,13 +386,18 @@ footer {
 }
 
 .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cards passem para a linha de baixo */
+    justify-content: center; /* CENTRALIZA os itens em cada linha */
     gap: 25px;
     margin-top: 50px;
 }
 
 .feature-card {
+    /* Define uma largura base para os cards para que caibam 3 por linha em ecrãs grandes */
+    flex: 1 1 300px; 
+    max-width: 400px; /* Impede que os cards fiquem demasiado largos quando sozinhos */
+    
     display: flex;
     gap: 20px;
     align-items: flex-start;
