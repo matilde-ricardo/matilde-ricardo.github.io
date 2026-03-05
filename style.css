@@ -778,3 +778,68 @@ footer {
     text-transform: uppercase;
     border-top: 1px solid rgba(115, 177, 109, 0.2);
 }
+
+/* ==========================================================
+   CONTACT LINKS SECTION
+   ========================================================== */
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 50px;
+    flex-wrap: wrap; /* Permite que os ícones se ajustem em ecrãs pequenos */
+}
+
+.contact-item {
+    color: #a0a0a0; /* Cor de texto suave por padrão */
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(115, 177, 109, 0.1);
+    border-radius: 50px; /* Estilo "pílula" moderno */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efeito ao passar o rato (Hover) */
+.contact-item:hover {
+    color: #73b16d; /* A tua cor de destaque (verde) */
+    background: rgba(115, 177, 109, 0.08);
+    border-color: rgba(115, 177, 109, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo específico para os ícones */
+.contact-item i {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.contact-item:hover i {
+    transform: scale(1.2); /* O ícone cresce ligeiramente no hover */
+}
+
+/* ==========================================================
+   RESPONSIVIDADE (MOBILE)
+   ========================================================== */
+
+@media (max-width: 768px) {
+    .contact-links {
+        flex-direction: column; /* Empilha verticalmente em telemóveis */
+        gap: 15px;
+        padding: 0 20px;
+    }
+
+    .contact-item {
+        width: 100%; /* Ocupa a largura total disponível */
+        max-width: 300px; /* Mas não fica demasiado largo */
+        justify-content: center; /* Centra o conteúdo dentro do botão */
+    }
+}
