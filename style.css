@@ -843,3 +843,20 @@ footer {
         justify-content: center; /* Centra o conteúdo dentro do botão */
     }
 }
+
+.nav-logo-img {
+    height: 40px; /* Ajusta conforme o design do teu logo */
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.nav-logo-img:hover {
+    transform: scale(1.1); /* Um pequeno efeito ao passar o rato */
+}
+
+/* Remove estilos de texto antigos se necessário */
+.logo {
+    display: flex;
+    align-items: center;
+}
