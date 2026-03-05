@@ -351,3 +351,24 @@ footer {
     justify-content: center;
     align-items: center;
 }
+
+/* Estado inicial: Escondido e deslocado para baixo */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    visibility: hidden;
+    will-change: transform, opacity;
+}
+
+/* Estado final: Quando entra no ecrã */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+/* Classe auxiliar para o efeito cascata via JS */
+.reveal-item {
+    transition-delay: calc(var(--item-reveal-delay) * 0.15s);
+}
