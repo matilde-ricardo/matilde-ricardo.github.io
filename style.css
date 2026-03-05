@@ -49,14 +49,14 @@ nav {
 
 /* Pequeno ajuste para o conteúdo não ficar por baixo da nav fixa */
 body {
-    padding-top: 60px; 
+       padding-top: 60px; 
 }
 
 /* Efeito ao fazer scroll: a nav pode ficar mais compacta */
 nav.scrolled {
-    padding: 0.8rem 10%;
-    background: rgba(10, 10, 10, 0.9);
-    border-bottom: 1px solid var(--accent-color);
+             padding: 0.8rem 10%;
+             background: rgba(10, 10, 10, 0.9);
+             border-bottom: 1px solid var(--accent-color);
 }
 /* ==========================================================
    3. HERO SECTION
