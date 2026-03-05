@@ -325,3 +325,29 @@ footer {
 @keyframes fadeInUp {
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* ==========================================================
+   9. EFEITO TYPING (CURSOR ANIMATION)
+   ========================================================== */
+#typing-title {
+    display: inline-block;
+    min-height: 1.2em; /* Evita que o layout salte antes de começar */
+    border-right: 3px solid var(--accent-color); /* O cursor | */
+    padding-right: 5px;
+    white-space: normal; /* Permite quebra de linha em ecrãs pequenos */
+    animation: blinkCursor 0.8s step-end infinite;
+}
+
+@keyframes blinkCursor {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--accent-color); }
+}
+
+/* Ajuste opcional para o header não saltar */
+.project-header {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
