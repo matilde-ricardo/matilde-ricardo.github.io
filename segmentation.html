@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segmentation Comparison | Matilde Ricardo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">MR</div>
+        <a href="index.html" class="back-link">← Back to Portfolio</a>
+    </nav>
+
+    <header style="padding-top: 150px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+        <span class="tag reveal">Medical Imaging • Python • ITK/VTK</span>
+        <h1 id="typing-title" style="margin: 0; min-height: 1.2em;"></h1>
+    </header>
+
+    <main style="padding: 0 10% 100px;">
+        <div class="card reveal" style="margin-bottom: 40px;">
+            <h2>Project Overview</h2>
+            <p>Este projeto consistiu no desenvolvimento de uma <strong>Interface Gráfica (GUI)</strong> em Python para otimizar a análise comparativa de segmentações tridimensionais de estruturas anatómicas[cite: 125, 134]. O sistema combate a subjetividade do diagnóstico manual ao permitir a comparação visual e quantitativa direta entre diferentes observadores[cite: 124, 135].</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card reveal">
+                <div class="feature-icon">🔍</div>
+                <div class="feature-content">
+                    <h3>Synchronized 3D Viewing</h3>
+                    <p>Visualização sincronizada de conjuntos de dados 3D através do toolkit VTK, garantindo o mesmo referencial anatómico em ambas as janelas[cite: 163, 166].</p>
+                </div>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">📊</div>
+                <div class="feature-content">
+                    <h3>Automated Metrics</h3>
+                    <p>Extração automática de parâmetros de intensidade (média, desvio padrão) e geométricos (volume, arredondamento, diâmetros de Feret) via ITK[cite: 167, 169, 170].</p>
+                </div>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">⚠️</div>
+                <div class="feature-content">
+                    <h3>Discrepancy Alerts</h3>
+                    <p>Geração de tabelas comparativas com alertas visuais automáticos sempre que a diferença entre observadores ultrapassa os 10%[cite: 135, 173].</p>
+                </div>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">💾</div>
+                <div class="feature-content">
+                    <h3>Data Export</h3>
+                    <p>Histórico de sessões integrado com capacidade de exportação de dados em formato DAT para análise estatística externa[cite: 127, 174].</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Efeito de Typing
+        const text = "Segmentation Comparison Analysis";
+        let i = 0;
+        function type() {
+            if (i < text.length) {
+                document.getElementById('typing-title').innerHTML += text.charAt(i);
+                i++; setTimeout(type, 70);
+            }
+        }
+        document.addEventListener("DOMContentLoaded", type);
+    </script>
+</body>
+</html>
