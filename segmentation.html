@@ -22,10 +22,12 @@
 
     <main style="padding: 0 10% 100px;">
         
-        <div class="image-interactive-wrapper reveal">
-            <img src="gui-main.png" alt="Main GUI Interface" class="img-main-glow">
-            <div class="img-caption">Main Interface: Synchronized TOF-MRA 3D Rendering</div>
-        </div>
+        <section style="display: flex; justify-content: center; width: 100%; padding: 40px 0;">
+            <div class="image-interactive-wrapper reveal" style="margin: 0 auto;">
+                <img src="gui-main.png" alt="Main GUI Interface" class="img-main-glow">
+                <div class="img-caption">Main Interface: Synchronized TOF-MRA 3D Rendering</div>
+            </div>
+        </section>
 
         <div class="card reveal" style="margin-bottom: 40px;">
             <h2>Project Overview</h2>
@@ -62,11 +64,11 @@
                 </div>
             </div>
             
-            <div class="feature-card reveal" style="background: rgba(115, 177, 109, 0.05);">
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fa-solid fa-code-branch"></i></div>
                 <div class="feature-content">
                     <h3>Technical Stack</h3>
-                    <img src="workflow-diagram.png" alt="ITK VTK Workflow" style="width: 100%; border-radius: 8px; margin: 10px 0;">
-                    <p>Processing DICOM data through SimpleITK filters for geometric feature extraction.</p>
+                    <p>Processing DICOM data through simple ITK filters for geometric feature extraction.</p>
                 </div>
             </div>
 
