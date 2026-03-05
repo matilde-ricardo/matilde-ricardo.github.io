@@ -25,42 +25,39 @@ body {
 }
 
 /* ==========================================================
-   2. NAVEGAÇÃO
+   2. NAVEGAÇÃO (GLASSMORPHISM)
    ========================================================== */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 10%;
+    padding: 1rem 10%;
+    position: fixed; /* Fica fixa no topo */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Garante que fica por cima de tudo */
+    
+    /* Efeito de Vidro */
+    background: rgba(10, 10, 10, 0.7); /* Fundo escuro semi-transparente */
+    backdrop-filter: blur(10px); /* O segredo do desfoque */
+    -webkit-backdrop-filter: blur(10px); /* Compatibilidade Safari */
+    border-bottom: 1px solid rgba(115, 177, 109, 0.2); /* Borda verde muito subtil */
+    
+    transition: all 0.3s ease;
 }
 
-.logo { 
-    font-family: 'Oswald', sans-serif; 
-    font-size: 1.5rem; 
-    color: var(--accent-color); 
-    font-weight: bold;
+/* Pequeno ajuste para o conteúdo não ficar por baixo da nav fixa */
+body {
+    padding-top: 60px; 
 }
 
-nav ul { 
-    display: flex; 
-    list-style: none; 
-    gap: 30px; 
-    margin: 0; 
-    padding: 0;
+/* Efeito ao fazer scroll: a nav pode ficar mais compacta */
+nav.scrolled {
+    padding: 0.8rem 10%;
+    background: rgba(10, 10, 10, 0.9);
+    border-bottom: 1px solid var(--accent-color);
 }
-
-nav ul li a { 
-    color: var(--text-dim); 
-    text-decoration: none; 
-    transition: 0.3s; 
-    font-size: 0.9rem; 
-    font-weight: 700;
-}
-
-nav ul li a:hover { 
-    color: var(--accent-color); 
-}
-
 /* ==========================================================
    3. HERO SECTION
    ========================================================== */
