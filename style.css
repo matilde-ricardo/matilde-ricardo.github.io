@@ -713,3 +713,68 @@ footer {
 @media (max-width: 768px) {
     .comparison-flex-container { flex-direction: column; }
 }
+
+/* Força o empilhamento vertical do título e tags */
+.project-header {
+    padding-top: 150px;
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column; /* Coloca a tag por cima do H1 */
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+#typing-title {
+    margin: 0;
+    min-height: 1.2em;
+    font-size: 3rem;
+    color: #fff;
+}
+
+/* Efeito de Brilho e Interatividade nas Imagens */
+.image-interactive-wrapper {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 40px 0;
+    border: 1px solid rgba(115, 177, 109, 0.2);
+    transition: all 0.4s ease;
+}
+
+.image-interactive-wrapper img {
+    width: 100%;
+    display: block;
+    filter: brightness(0.8) grayscale(20%);
+    transition: all 0.5s ease;
+}
+
+/* Quando o utilizador passa o rato na imagem */
+.image-interactive-wrapper:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 30px rgba(115, 177, 109, 0.3);
+    transform: translateY(-5px);
+}
+
+.image-interactive-wrapper:hover img {
+    filter: brightness(1.1) grayscale(0%);
+    transform: scale(1.01);
+}
+
+/* Legenda da Imagem */
+.img-caption {
+    background: rgba(10, 10, 10, 0.9);
+    color: var(--accent-color);
+    padding: 12px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-top: 1px solid rgba(115, 177, 109, 0.2);
+}
