@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Segmentation Comparison | Matilde Ricardo</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <nav>
@@ -20,43 +21,77 @@
     <main style="padding: 0 10% 100px;">
         <div class="card reveal" style="margin-bottom: 40px;">
             <h2>Project Overview</h2>
-            <p>Este projeto consistiu no desenvolvimento de uma <strong>Interface Gráfica (GUI)</strong> em Python para otimizar a análise comparativa de segmentações tridimensionais de estruturas anatómicas[cite: 125, 134]. O sistema combate a subjetividade do diagnóstico manual ao permitir a comparação visual e quantitativa direta entre diferentes observadores[cite: 124, 135].</p>
+            <p>This project involved the development of a Python-based <strong>Graphical User Interface (GUI)</strong> designed to optimize the comparative analysis of 3D medical segmentations. By leveraging <strong>ITK (Insight Toolkit)</strong> and <strong>VTK</strong>, the system provides synchronized visualization and automated metric calculation, effectively tackling the subjectivity and inter-observer variability inherent in manual medical image segmentation.</p>
         </div>
 
-        <div class="features-grid">
+        <h2 class="section-title reveal">Clinical Validation Engine</h2>
+        <p style="text-align: center; color: var(--text-dim); margin-bottom: 30px;">Real-time discrepancy detection based on inter-observer data analysis.</p>
+        
+        <div class="metrics-container reveal">
+            <div class="metric-card highlight">
+                <span class="label">Volume Difference</span>
+                <div class="value">24.4%</div>
+                <div class="status-alert"><i class="fa-solid fa-triangle-exclamation"></i> HIGH SUBJECTIVITY</div>
+            </div>
+            <div class="metric-card">
+                <span class="label">Roundness Diff</span>
+                <div class="value">2.8%</div>
+                <div class="status-ok"><i class="fa-solid fa-check"></i> CONSISTENT</div>
+            </div>
+            <div class="metric-card highlight">
+                <span class="label">Skewness (ICA)</span>
+                <div class="value">100.3%</div>
+                <div class="status-alert"><i class="fa-solid fa-triangle-exclamation"></i> SEGMENTATION ERROR</div>
+            </div>
+        </div>
+
+        
+
+        <div class="features-grid" style="margin-top: 50px;">
             <div class="feature-card reveal">
-                <div class="feature-icon">🔍</div>
+                <div class="feature-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
                 <div class="feature-content">
                     <h3>Synchronized 3D Viewing</h3>
-                    <p>Visualização sincronizada de conjuntos de dados 3D através do toolkit VTK, garantindo o mesmo referencial anatómico em ambas as janelas[cite: 163, 166].</p>
+                    <p>Implemented 3D render window synchronization where any interaction (rotation or zoom) in one observer view is instantly mirrored in the other, maintaining the same anatomical reference.</p>
                 </div>
             </div>
             <div class="feature-card reveal">
-                <div class="feature-icon">📊</div>
+                <div class="feature-icon"><i class="fa-solid fa-microscope"></i></div>
                 <div class="feature-content">
-                    <h3>Automated Metrics</h3>
-                    <p>Extração automática de parâmetros de intensidade (média, desvio padrão) e geométricos (volume, arredondamento, diâmetros de Feret) via ITK[cite: 167, 169, 170].</p>
+                    <h3>Advanced Metrics Engine</h3>
+                    <p>Automated extraction of intensity parameters (Mean, SD, Skewness, Kurtosis) and geometric features (Volume, Roundness, Feret Diameters) using the ITK framework.</p>
                 </div>
             </div>
             <div class="feature-card reveal">
-                <div class="feature-icon">⚠️</div>
+                <div class="feature-icon"><i class="fa-solid fa-database"></i></div>
                 <div class="feature-content">
-                    <h3>Discrepancy Alerts</h3>
-                    <p>Geração de tabelas comparativas com alertas visuais automáticos sempre que a diferença entre observadores ultrapassa os 10%[cite: 135, 173].</p>
-                </div>
-            </div>
-            <div class="feature-card reveal">
-                <div class="feature-icon">💾</div>
-                <div class="feature-content">
-                    <h3>Data Export</h3>
-                    <p>Histórico de sessões integrado com capacidade de exportação de dados em formato DAT para análise estatística externa[cite: 127, 174].</p>
+                    <h3>Session & Data Logistics</h3>
+                    <p>Integrated session history module for tracking analysis progress and exporting comprehensive clinical data in .DAT format for external statistical validation.</p>
                 </div>
             </div>
         </div>
+
+        <section class="card reveal" style="margin-top: 40px; background: rgba(115, 177, 109, 0.02);">
+            <h3 style="color: var(--accent-color); margin-bottom: 20px;">Technical Stack & Implementation</h3>
+            <ul style="list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 15px;"><strong>Core Toolkit:</strong> Python with <code>PyQt5</code> for GUI architecture and <code>SimpleITK</code> for volumetric data processing.</li>
+                <li style="margin-bottom: 15px;"><strong>Visualization:</strong> <code>VTK</code> backend for high-performance 3D rendering and synchronized camera mapping.</li>
+                <li style="margin-bottom: 15px;"><strong>Imaging Data:</strong> Optimized for Time-of-Flight Magnetic Resonance Angiography (TOF-MRA) datasets.</li>
+            </ul>
+        </section>
+
+        <section style="text-align: center; padding-top: 80px;">
+            <div class="reveal">
+                <h3 style="margin-bottom: 20px; color: var(--text-dim);">Want to see the implementation?</h3>
+                <a href="https://github.com/matilde-ricardo/segmentation-comparison" target="_blank" class="btn-github">
+                    <i class="fa-brands fa-github"></i> Explore Code on GitHub
+                </a>
+            </div>
+        </section>
     </main>
 
     <script>
-        // Efeito de Typing
+        // Typing Effect
         const text = "Segmentation Comparison Analysis";
         let i = 0;
         function type() {
@@ -65,7 +100,18 @@
                 i++; setTimeout(type, 70);
             }
         }
-        document.addEventListener("DOMContentLoaded", type);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            type();
+            // Reveal on Scroll Logic
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) entry.target.classList.add('active');
+                });
+            }, { threshold: 0.1 });
+            reveals.forEach(r => observer.observe(r));
+        });
     </script>
 </body>
 </html>
