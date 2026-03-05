@@ -3,164 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matilde Ricardo | Biomedical Engineering & Dev</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Matilde Ricardo | Biomedical Engineer</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.2/tsparticles.bundle.min.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">MR</div>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="tsparticles"></div>
+    
+    <nav>
+        <div class="logo">MR</div>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+        </ul>
+    </nav>
 
-    <section id="hero">
-        <div class="hero-content">
-            <h1>MATILDE RICARDO</h1>
-            <p>Biomedical Engineering student focused on building innovative tech solutions for healthcare.</p>
-        </div>
-    </section>
+    <header id="hero">
+        <h1 class="reveal">Matilde Ricardo</h1>
+        <p class="reveal">Biomedical Engineering Student & Tech Enthusiast</p>
+        <a href="#" class="btn-download reveal">Download CV</a>
+    </header>
 
     <section id="about">
         <h2 class="section-title">About Me</h2>
-        <p>Currently pursuing a degree in Biomedical Engineering, I work at the intersection of medicine and computer science. I am particularly passionate about information technology, with a keen interest in
-programming, software development, and leveraging technology to solve real-world problems. I enjoy exploring new tools and technologies and applying them to improve efficiency and innovation.</p>
-        <div style="text-align: center; margin-top: 30px;">
-            <a href="CV_MatildeRicardo.pdf" download class="btn-download">
-                <i class="fa-solid fa-file-pdf"></i> Download CV
-            </a>
-        </div>
+        <p>I focus on bridging the gap between healthcare and technology.</p>
     </section>
 
     <section id="skills">
         <h2 class="section-title">Technical Skills</h2>
-        <p class="skills-intro">Here are some of the key technologies and tools I work with.</p>
+        <p>Here are some of the key technologies and tools I work with.</p>
         <div class="skills-grid">
-    <div class="skill-card">
-        <i class="fa-solid fa-terminal skill-icon"></i>
-        <h3>Languages</h3>
-        <p>Python, Java, C, C++, SQL, HTML, PHP</p>
-    </div>
-
-    <div class="skill-card">
-        <i class="fa-solid fa-screwdriver-wrench skill-icon"></i>
-        <h3>Tools & Frameworks</h3>
-        <p>MATLAB, GitHub, NumPy, React, Node.js</p>
-    </div>
-
-    <div class="skill-card">
-        <i class="fa-solid fa-database skill-icon"></i>
-        <h3>Databases</h3>
-        <p>MySQL</p>
-    </div>
-
-    <div class="skill-card">
-        <i class="fa-solid fa-users skill-icon"></i>
-        <h3>Soft Skills</h3>
-        <p>Teamwork, Problem Solving, Analytical Thinking, Communication</p>
-    </div>
-</div>
+            <div class="skill-card"><h3>Unity</h3><p>C# Game Development</p></div>
+            <div class="skill-card"><h3>Python</h3><p>Data Analysis</p></div>
+            <div class="skill-card"><h3>Electronics</h3><p>Sensors & Microcontrollers</p></div>
+        </div>
     </section>
 
     <section id="projects">
         <h2 class="section-title">Featured Projects</h2>
         <div class="grid-projects">
-
             <div class="card">
-                <span class="tag">Unity / C# / PHP / MySQL</span>
+                <span class="tag">Biotech</span>
                 <h3>FlexiFun</h3>
-                <p>Smart Rehabilitation Glove with Interactive Game Integration</p>
-                <a href="flexifun.html" class="project-link">View Project →</a>
+                <p>Sensorized glove for rehabilitation.</p>
+                <a href="flexifun.html" class="project-link">View Details →</a>
             </div>
-            <div class="card">
-                <span class="tag">Web Development / Relational database</span>
-                <h3>BioHealthLab</h3>
-                <p>Clinical Management & Monitoring Web Platform.</p>
-                <a href="#" class="project-link">View Project →</a>
-            </div>
-
-            <div class="card">
-                <span class="tag">Python / ITK</span>
-                <h3>Segmentation Comparison</h3>
-                <p>Image Processing for Medical Analysis and reduced Human Error</p>
-                <a href="#" class="project-link">View Project →</a>
-            </div>
-
         </div>
     </section>
 
+    <footer><p>© 2026 Matilde Ricardo</p></footer>
 
-   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-
-                // Adiciona a classe 'scrolled' quando o utilizador desce 50px
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
+    <script>
+        // Partículas
+        tsParticles.load("tsparticles", {
+            particles: {
+                number: { value: 60 },
+                color: { value: "#73b16d" },
+                opacity: { value: 0.4, animation: { enable: true, speed: 1 } },
+                size: { value: { min: 1, max: 3 } },
+                move: { enable: true, speed: 0.6 }
             }
         });
-        // 1. Lista abrangente de seletores para incluir TODO o conteúdo
-        const selectors = [
-            '#hero h1', '#hero p', '.btn-download', 
-            '#about h2', '#about p', 
-            '.section-title', '#skills > p', // Captura o texto por baixo de Technical Skills
-            '.skill-card', '.card', 'footer'
-        ];
 
-        // 2. Aplicar a classe reveal a todos os elementos encontrados
-        selectors.forEach(selector => {
-            const elements = document.querySelectorAll(selector);
-            elements.forEach((el, index) => {
-                el.classList.add('reveal');
-                
-                // Identificar elementos que pertencem a grelhas para efeito cascata
-                const isGridItem = el.closest('.skills-grid') || el.closest('.grid-projects');
-                
-                if (isGridItem) {
-                    el.style.setProperty('--item-reveal-delay', index % 6); 
-                    el.classList.add('reveal-item');
-                }
+        // Scroll & Reveal
+        document.addEventListener("DOMContentLoaded", () => {
+            const selectors = ['#hero h1', '#hero p', '.btn-download', '#about h2', '#about p', '.section-title', '#skills > p', '.skill-card', '.card', 'footer'];
+            selectors.forEach(s => {
+                document.querySelectorAll(s).forEach((el, i) => {
+                    el.classList.add('reveal');
+                    if(el.classList.contains('skill-card') || el.classList.contains('card')) {
+                        el.style.setProperty('--item-reveal-delay', i % 4);
+                        el.classList.add('reveal-item');
+                    }
+                });
             });
-        });
 
-        // 3. Função de verificação do Scroll
-        function revealOnScroll() {
-            const reveals = document.querySelectorAll(".reveal");
-            const windowHeight = window.innerHeight;
-
-            reveals.forEach(el => {
-                const elementTop = el.getBoundingClientRect().top;
-                // Ajustado para o efeito ser mais evidente quando o user faz scroll
-                const elementVisible = 80; 
-
-                if (elementTop < windowHeight - elementVisible) {
-                    el.classList.add("active");
-                }
-            });
-        }
-
-            window.addEventListener("scroll", revealOnScroll);
-            // Executar após um pequeno delay para o Hero aparecer logo com impacto
-            setTimeout(revealOnScroll, 150);
+            const reveal = () => {
+                document.querySelectorAll('.reveal').forEach(el => {
+                    if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
+                });
+                const nav = document.querySelector('nav');
+                window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
+            };
+            window.addEventListener('scroll', reveal);
+            reveal();
         });
     </script>
-    <footer id="contact">
-        <p>Connect with me</p>
-        <div class="social-links">
-            <a href="https://linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
-            <a href="mailto:your-email@example.com">Email</a>
-        </div>
-        <p class="copyright">© 2026 Matilde Ricardo</p>
-    </footer>
-
 </body>
 </html>
