@@ -565,3 +565,76 @@ footer {
     box-shadow: 0 0 20px rgba(115, 177, 109, 0.4);
     transform: translateY(-3px);
 }
+
+/* ==========================================================
+   SEGMENTATION PROJECT SPECIFIC STYLES
+   ========================================================== */
+
+/* Dashboard de Métricas */
+.metrics-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.metric-card {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 200px;
+    transition: 0.3s;
+}
+
+.metric-card.highlight {
+    border-color: #ff444455;
+}
+
+.metric-card .label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.metric-card .value {
+    font-size: 2rem;
+    font-family: 'Oswald', sans-serif;
+    color: var(--accent-color);
+}
+
+.metric-card.highlight .value {
+    color: #ff4444;
+}
+
+/* Alertas Animados */
+.status-alert {
+    color: #ff4444;
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin-top: 10px;
+    animation: alertPulse 1.5s infinite;
+}
+
+.status-ok {
+    color: var(--accent-color);
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+@keyframes alertPulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Feature Icon Glow */
+.feature-icon i {
+    filter: drop-shadow(0 0 8px var(--accent-color));
+}
