@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioHealthLab | Matilde Ricardo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.2/tsparticles.bundle.min.js"></script>
+</head>
+<body>
+    <div id="tsparticles"></div>
+
+    <nav>
+        <div class="logo">MR</div>
+        <a href="index.html" class="back-link">← Back to Portfolio</a>
+    </nav>
+
+    <section style="padding-top: 150px; text-align: center;">
+        <span class="tag">Data Analysis • Biosensors • Research</span>
+        <h1 id="typing-title"></h1>
+    </section>
+
+    <main class="project-content">
+        <section>
+            <h2 class="reveal">Project Overview</h2>
+            <p class="reveal">The <strong>BioHealthLab</strong> project focuses on the advanced processing of physiological signals to improve diagnostic accuracy. By integrating various biosensors, we develop algorithms that can detect early signs of cardiovascular and neurological anomalies.</p>
+            
+            <div class="card reveal" style="margin-top: 30px; text-align: center;">
+                <img src="lab-hero.png" alt="BioHealthLab Interface" class="grid-img" style="max-height: 400px; object-fit: contain;">
+            </div>
+        </section>
+
+        <div class="info-grid">
+            <div class="reveal">
+                <h3><i class="fa-solid fa-heart-pulse"></i> Signal Processing</h3>
+                <p>Advanced filtering and feature extraction from ECG and EMG signals using Python and specialized Bio-toolkits.</p>
+                <img src="ecg-analysis.png" alt="ECG Analysis" class="grid-img">
+            </div>
+            <div class="reveal">
+                <h3><i class="fa-solid fa-microscope"></i> Research Focus</h3>
+                <p>Developing non-invasive monitoring systems that provide real-time feedback for clinical research environments.</p>
+                <img src="research-data.png" alt="Data Visualization" class="grid-img">
+            </div>
+        </div>
+
+        <section>
+            <h3 class="reveal">Technical Core</h3>
+            <ul style="list-style: none;">
+                <li class="reveal" style="margin-bottom: 15px;">
+                    <strong style="color: var(--accent-color);">Algorithms:</strong> Implementing Machine Learning models for predictive health analytics.
+                </li>
+                <li class="reveal" style="margin-bottom: 15px;">
+                    <strong style="color: var(--accent-color);">Hardware Integration:</strong> Interfacing with professional medical-grade sensors and DAQ systems.
+                </li>
+                <li class="reveal" style="margin-bottom: 15px;">
+                    <strong style="color: var(--accent-color);">Compliance:</strong> Ensuring data handling follows healthcare privacy standards (GDPR/HIPAA).
+                </li>
+            </ul>
+        </section>
+
+        <div style="text-align: center; padding: 60px 0;">
+            <a href="https://github.com/matilde-ricardo/BioHealthLab" target="_blank" class="btn-github reveal">
+                <i class="fa-brands fa-github"></i> Explore Documentation
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Matilde Ricardo</p>
+    </footer>
+
+    <script>
+        // Inicialização de Partículas (Verde BioTech)
+        tsParticles.load("tsparticles", {
+            particles: {
+                number: { value: 70, density: { enable: true, area: 800 } },
+                color: { value: "#73b16d" },
+                opacity: { value: 0.4, animation: { enable: true, speed: 1, minimumValue: 0.1 } },
+                size: { value: { min: 1, max: 3 } },
+                move: { enable: true, speed: 0.5, direction: "none", random: true }
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Efeito Typing para o Título
+            const text = "BioHealthLab: Advanced Physiological Monitoring";
+            let i = 0;
+            const type = () => {
+                if (i < text.length) {
+                    document.getElementById('typing-title').innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, 60);
+                }
+            };
+            type();
+
+            // 2. Lógica de Reveal on Scroll
+            const reveal = () => {
+                const reveals = document.querySelectorAll('.reveal');
+                reveals.forEach(el => {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = el.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 80) {
+                        el.classList.add('active');
+                    }
+                });
+                
+                // Nav glass effect on scroll
+                const nav = document.querySelector('nav');
+                window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
+            };
+
+            window.addEventListener('scroll', reveal);
+            reveal(); // Ativar no load
+        });
+    </script>
+</body>
+</html>
